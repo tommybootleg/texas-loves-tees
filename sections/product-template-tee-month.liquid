@@ -35,9 +35,6 @@
       {%- assign enable_image_zoom = false -%}
   {% endcase %}
 
-  <div class="product-single__description tee-month-description rte">
-          {{ product.description }}
-        </div>
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
     <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
@@ -273,6 +270,9 @@
         >
         </div>
 
+        <div class="product-single__description tee-month-description rte">
+          {{ product.description }}
+        </div>
 
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
