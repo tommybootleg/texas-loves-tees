@@ -7010,5 +7010,5 @@ hr {
 /*================ Custom CSS ================*/
 
 .product-form-product-template-tee-month .paywhirl-plan-selector {
-  display: none;
+  display: none!important;
 }
