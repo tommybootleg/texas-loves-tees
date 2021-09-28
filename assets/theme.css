@@ -7009,17 +7009,6 @@ hr {
 
 /*================ Custom CSS ================*/
 
-.product-single__description {	
-  background: url(https://cdn.shopify.com/s/files/1/0571/2609/2996/files/slide-1.png?v=1621878865);
-  background-position: 0;}
-
-.tee-month-description h2 {
-  color: white;
+.paywhirl-plan-selector {
+  display: none;
 }
-
-.tee-month-description p {
-  background: white;
-  padding: 10px;
-  width: 65%;
-}
-
