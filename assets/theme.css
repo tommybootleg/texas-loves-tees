@@ -7026,5 +7026,15 @@ hr {
   padding: 20px;
   margin-bottom: 15px;
 }
+.monthly-tee-modal-container a{
+  background: #ffffff;
+  font-weight: 600;
+  border: 2px solid #3a3a3a;
+  padding: 10px;
+  color: #3a3a3a;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
 
 /*================ Modal Popup Styles ================*/
