@@ -7012,3 +7012,8 @@ hr {
 .product-form-product-template-tee-month .paywhirl-plan-selector {
   display: none!important;
 }
+
+.product-form-product-template-tee-month .product-single__title,
+.product-form-product-template-tee-month .product__price  {
+  display: none;
+}
