@@ -9686,4 +9686,3 @@ function removeImageLoadingAnimation(image) {
   }
 }
 
-
