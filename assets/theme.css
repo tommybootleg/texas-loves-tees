@@ -7017,3 +7017,12 @@ hr {
 .paywhirl-theme-debut .product__price  {
   display: none;
 }
+.paywhirl-theme-debut .tee-month-description {
+  padding: 0px;
+  margin-bottom: 30px;
+}
+.paywhirl-theme-debut .product-form-product-template-tee-month {
+  border: 2px solid black;
+  padding: 20px;
+  margin-bottom: 15px;
+}
