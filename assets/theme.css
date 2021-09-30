@@ -7055,6 +7055,16 @@ hr {
 }
 
 /* Modal Content */
+.monthly-tee-modal-container #myBtn {
+  background: #ffffff;
+  font-weight: 600;
+  border: 2px solid #3a3a3a;
+  padding: 10px;
+  color: #3a3a3a;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
 .monthly-modal-content {
   background-color: #fefefe;
   margin: auto;
