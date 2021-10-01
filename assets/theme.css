@@ -7071,10 +7071,10 @@ hr {
 .monthly-modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 50px;
   border: 1px solid #888;
   width: 80%;
-  max-height: 600px;
+  max-height: 675px;
   overflow-x: hidden;
 }
 
