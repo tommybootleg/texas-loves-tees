@@ -7044,7 +7044,7 @@ hr {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 60px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -7065,7 +7065,7 @@ hr {
   margin-bottom: 30px;
 }
 .monthly-tee-modal-container #myModal {
-  padding-bottom: 150px;
+  
 }
 
 .monthly-modal-content {
@@ -7074,6 +7074,8 @@ hr {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-height: 600px;
+  overflow-x: hidden;
 }
 
 /* The Close Button */
