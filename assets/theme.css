@@ -7064,6 +7064,9 @@ hr {
   display: inline-block;
   margin-bottom: 30px;
 }
+.monthly-tee-modal-container #myModal {
+  padding-bottom: 150px;
+}
 
 .monthly-modal-content {
   background-color: #fefefe;
