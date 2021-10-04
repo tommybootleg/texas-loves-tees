@@ -7095,3 +7095,14 @@ hr {
 .monthly-modal-inner {
   padding: 50px;
 }
+.modal-title-banner {
+  height: 140px;
+  background: #ff0100;
+  text-align: center;
+}
+.modal-title-banner h4 {
+  margin: 55px 0;
+  display: inline-block;
+  color: white;
+  font-size: 30px;
+}
