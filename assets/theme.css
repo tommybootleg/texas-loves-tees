@@ -7075,7 +7075,7 @@ hr {
   width: 80%;
   max-height: 675px;
   overflow-x: hidden;
-  border: 3px solid #070074;
+  position: relative;
 }
 
 /* The Close Button */
@@ -7084,6 +7084,8 @@ hr {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  right: 10px;
 }
 
 .monthly-close:hover,
