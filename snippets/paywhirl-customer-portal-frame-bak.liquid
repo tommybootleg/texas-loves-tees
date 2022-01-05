@@ -1,4 +1,4 @@
-{%- comment -%} PayWhirl Snippets, version 2.09 {%- endcomment -%}
+{%- comment -%} PayWhirl Snippets, version 2.07 {%- endcomment -%}
 
 {% assign pw_link_shop = shop.permanent_domain | url_encode %}
 {% assign pw_link_timestamp = "now" | date: "%s" %}
@@ -12,7 +12,9 @@
 {% capture pw_secret %}{% render 'paywhirl-customer-portal-secret' %}{% endcapture %}
 {% assign pw_signature = pw_params | hmac_sha256: pw_secret %}
 
-{% assign stylesheet = "paywhirl-customer-portal-theme.css" %}
+{% unless stylesheet %}
+  {% assign stylesheet = "paywhirl-customer-portal-theme.scss.css" %}
+{% endunless %}
 {% assign stylesheet = stylesheet | asset_url | url_encode %}
 {% assign domain = shop.domain | url_encode %}
 {% assign locale = request.locale.iso_code %}
@@ -84,7 +86,7 @@
 
       var page = decodeURIComponent(match[1]);
 
-      return "/a/paywhirl" + page + "?{{ pw_params }}&link_signature={{ pw_signature }}&stylesheet={{ stylesheet }}&domain={{ domain }}&locale={{ locale }}&use_built_in_stylesheets=1"
+      return "/a/paywhirl" + page + "?{{ pw_params }}&link_signature={{ pw_signature }}&stylesheet={{ stylesheet }}&domain={{ domain }}&locale={{ locale }}"
     }
 
     function setupTranslations() {
