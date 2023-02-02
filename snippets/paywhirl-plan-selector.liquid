@@ -1,8 +1,8 @@
-{%- comment -%} PayWhirl Snippets, version 2.07 {%- endcomment -%}
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
 
 {% if product and product.selling_plan_groups.size > 0 %}
 
-<fieldset class="paywhirl-plan-selector paywhirl-plan-selector-last product-form__fieldset" style="display: none">
+<fieldset class="paywhirl-plan-selector paywhirl-plan-selector-last product-form__fieldset" data-section-id="{{ section.id }}" style="display: none">
   <input type="hidden" name="selling_plan" value="{{ product.selected_selling_plan.id }}" />
   <legend data-i18n="plan-selector-title">Purchase options</legend>
 
@@ -42,7 +42,7 @@
 
 <script>
   (function() {
-    var product = {{ product | json }};
+    var product = {{ all_products[product.handle] | json }};
 
     product.page_type = {{ request.page_type | json }};
     product.selected_selling_plan = {{ product.selected_selling_plan | json }};

@@ -1,4 +1,4 @@
-{%- comment -%} PayWhirl Snippets, version 2.07 {%- endcomment -%}
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
 
 <script>
 (function(paywhirl) {
@@ -14,6 +14,10 @@
   function setupPlanSelector($node) {
     var product = JSON.parse($node[0].dataset.product);
 
+    function getSectionId() {
+      return $node.data('sectionId');
+    }
+
     function getNodeId() {
       return $node.attr('id');
     }
@@ -23,7 +27,13 @@
     }
 
     function getForm() {
-      return getPlanSelector().closest('form[action*="/cart/add"]');
+      var form = getPlanSelector().closest('form[action*="/cart/add"]');
+
+      if (form.length === 0) {
+        form = $('#product-form-' + getSectionId());
+      }
+
+      return form;
     }
 
     function getVariantId() {
@@ -104,14 +114,14 @@
       selectPlan(getSelectedOrFirstAvailablePlanId());
     }
 
-    function variantChanged() {
+    function variantChanged(forceUpdate = false) {
       var variantId = getVariantId();
 
       if (!variantId) {
         return;
       }
 
-      if (!variantChanged.previousId || variantChanged.previousId !== variantId) {
+      if (!variantChanged.previousId || variantChanged.previousId !== variantId || forceUpdate) {
         filterGroupsForVariant(variantId);
       }
 
@@ -165,11 +175,29 @@
 
     updateTranslations();
 
+    // Workaround for the plan selector being outside of the main product form in Dawn
+    if (getPlanSelector().closest('form[action*="/cart/add"]').length === 0) {
+      getPlanSelector().find('input').attr('form', getForm().attr('id'));
+    }
+
     $('body').on('change', '#' + getNodeId() + ' input[name="paywhirl-plan-selector-group"]', selectSelectedPlan);
     $('body').on('change', '#' + getNodeId() + ' .paywhirl-plan-selector-group select', selectSelectedPlan);
-
     getForm().addClass(getNodeId() + '-form');
+
     $('body').on('DOMSubtreeModified', '.' + getNodeId() + '-form', function() { setTimeout(variantChanged, 10); });
+
+    // Workaround for monitoring AJAX price updates in Dawn
+    $('body').on('DOMSubtreeModified', '#price-' + getSectionId(), function(ev) {
+      $el = $(ev.currentTarget).find('.price');
+
+      if ($el.hasClass('paywhirl-price-ignored')) {
+        return;
+      }
+
+      $el.addClass('paywhirl-price-ignored');
+      variantChanged(true);
+    });
+
     variantChanged();
 
     if (product.selected_selling_plan) {

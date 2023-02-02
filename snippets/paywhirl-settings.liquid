@@ -1,4 +1,4 @@
-{%- comment -%} PayWhirl Snippets, version 2.07 {%- endcomment -%}
+{%- comment -%} PayWhirl Snippets, version 2.10 {%- endcomment -%}
 
 <script>
 window.paywhirlForShopify = window.paywhirlForShopify || {};
@@ -6,10 +6,10 @@ window.paywhirlForShopify.settings = {
   /*
    * Original theme, to which the styling should be adjusted
    *
-   * Recognized values are: 'boundless', 'brooklyn', 'debut', 'express',
+   * Recognized values are: 'boundless', 'brooklyn', 'dawn', 'debut', 'express',
    * 'minimal', 'narrative', 'simple', 'supply', 'venture' and 'custom'
    */
-  theme: 'debut',
+  theme: 'custom',
 
   /*
    * Callback function for adjusting product price when the user selects a subscription plan
@@ -25,7 +25,7 @@ window.paywhirlForShopify.settings = {
    *   - compare_at_price_formatted_without_trailing_zeros: Formatted regular price excluding decimal point and trailing zeros
    */
   updatePrice: function($planSelector, prices) {
-    console.log('PayWhirl: Updating price to', prices);
+    console.log('PayWhirl: Updating price to ' + prices.price_formatted);
 
     // Find wrapping node of the current product
 
